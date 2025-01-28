@@ -21,7 +21,7 @@ public class CEVGenCore extends JPanel {
     //Variables
     private int points, n;
     private double radius, pointSpeed, shiftSpeed, audioShiftIntensity, audioRadiusIntensity;
-    private boolean symetrical, grayScale, hueShift, playMusic, animate;
+    private boolean symetrical, grayScale, hueShift, playMusic = false, animate;
     
     public CEVGenCore() { w = new CEVMath(); }                                                                           //Constructor.
     

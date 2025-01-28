@@ -8,8 +8,12 @@ public class Display extends javax.swing.JFrame {
         private void start(){
             initComponents(); w.imageSizer(); 
             
-            boolean animate = true; w.setAnimate(animate); w.setPlayMusic(true);
-            if (animate) { w.m.setTrack(getTrack()); w.m.playAudio(); }
+            int track = getTrack(); 
+            
+            boolean animate = true; w.setAnimate(animate);
+            
+            if (track != 0) { w.setPlayMusic(true); }
+            if (animate && track != 0) { w.m.setTrack(track); w.m.playAudio(); }
             
             w.setAudioShiftIntensity(0.30); w.setAudioRadiusIntensity(-0.60);
 
@@ -28,7 +32,7 @@ public class Display extends javax.swing.JFrame {
         }
         
         private int getTrack(){
-            String input = JOptionPane.showInputDialog("Please enter a track number [1 - 7]:");
+            String input = JOptionPane.showInputDialog("Please enter a track number [1 - 9] (0 = no audio):");
             int number = 0;
             try {
                 number = Integer.parseInt(input);
