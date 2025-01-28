@@ -21,6 +21,7 @@ public class Music {
                 clip = AudioSystem.getClip();
                 clip.open(input); 
                 clip.start();
+                
             }
             else { System.out.println("Audio missing."); }
         } catch(Exception e) { System.out.println(e); }

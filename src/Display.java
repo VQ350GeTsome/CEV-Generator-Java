@@ -1,15 +1,14 @@
+
+import javax.swing.JOptionPane;
+
 public class Display extends javax.swing.JFrame {
 
-    public Display() { 
-        
-        start();
-        
-    }
-        
-        private void start(){
+    public Display() { start(getTrack()); }
+    
+        private void start(int track){
             initComponents(); w.imageSizer(); 
 
-            w.m.setTrack(2); w.m.playAudio();
+            w.m.setTrack(track); w.m.playAudio();
             w.setAudioShiftIntensity(0.30); w.setAudioRadiusIntensity(-0.60);
 
             w.setPoints(75); w.setN(3);
@@ -26,6 +25,18 @@ public class Display extends javax.swing.JFrame {
                 w.timer.start();
             }
         }
+        
+        private int getTrack(){
+            String input = JOptionPane.showInputDialog("Please enter a track number [0 - 7]:");
+            int number = 0;
+            try {
+                number = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println(e);
+            }
+            return number;
+        }
+        
         
        
     

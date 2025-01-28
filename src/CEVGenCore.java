@@ -19,7 +19,7 @@ public class CEVGenCore extends JPanel {
     //private Exporter export = new Exporter();
     
     //Variables
-    private int points, n, track;
+    private int points, n;
     private double radius, pointSpeed, shiftSpeed, audioShiftIntensity, audioRadiusIntensity;
     private boolean symetrical, grayScale, hueShift, playMusic, animate;
     
@@ -81,7 +81,7 @@ public class CEVGenCore extends JPanel {
     } 
     
     public void moveNoise(){                                                                                             //Applies the move that was made in initMove(maxMove);
-        CEVInfo point; CEVInfo direction;                                                                          //If point hits edge of display, bounce back.
+        CEVInfo point; CEVInfo direction;                                                                                //If point hits edge of display, bounce back.
         for (int i = 0; points > i; i++){
             point = pointsList.get(i); direction = directionList.get(i);
             
@@ -105,7 +105,6 @@ public class CEVGenCore extends JPanel {
     
     public void setN     (int n)      { this.n = n; }
     public void setPoints(int points) { this.points = points; }
-    public void setTrack (int track)  { this.track  = track;  }
      
     public void setGrayScale (boolean grayScale)  { this.grayScale  = grayScale;  }
     public void setHueShift  (boolean hueShift)   { this.hueShift   = hueShift;   }
