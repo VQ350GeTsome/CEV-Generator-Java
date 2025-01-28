@@ -29,7 +29,7 @@ public class CEVGenCore extends JPanel {
     public void initTime(){                                                                                              //Timer, tries to run at 60fps
          timer = new Timer(1000 / 60, new ActionListener() {
             public void actionPerformed(ActionEvent e){
-               moveNoise(); frame++;
+               moveNoise(); frame++; screenShot();
             }
         });
     }
