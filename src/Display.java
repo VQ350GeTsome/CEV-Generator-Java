@@ -3,23 +3,24 @@ import javax.swing.JOptionPane;
 
 public class Display extends javax.swing.JFrame {
 
-    public Display() { start(getTrack()); }
+    public Display() { start(); }
     
-        private void start(int track){
+        private void start(){
             initComponents(); w.imageSizer(); 
-
-            w.m.setTrack(track); w.m.playAudio();
+            
+            boolean animate = true; w.setAnimate(animate); w.setPlayMusic(true);
+            if (animate) { w.m.setTrack(getTrack()); w.m.playAudio(); }
+            
             w.setAudioShiftIntensity(0.30); w.setAudioRadiusIntensity(-0.60);
 
             w.setPoints(75); w.setN(3);
             w.setRadius(100.0); w.setPointSpeed(0.75); w.setShiftSpeed(1);
-            w.setGrayScale(false); w.setSymetrical(true); w.setHueShift(true); w.setPlayMusic(true);
-
-            boolean animate = true; w.setAnimate(animate);
+            w.setGrayScale(false); w.setSymetrical(true); w.setHueShift(true); 
 
             w.initNoise(); w.printNoise();
 
             if (animate) {
+
                 w.initMove();
                 w.initTime();
                 w.timer.start();
@@ -27,7 +28,7 @@ public class Display extends javax.swing.JFrame {
         }
         
         private int getTrack(){
-            String input = JOptionPane.showInputDialog("Please enter a track number [0 - 7]:");
+            String input = JOptionPane.showInputDialog("Please enter a track number [1 - 7]:");
             int number = 0;
             try {
                 number = Integer.parseInt(input);
@@ -55,7 +56,12 @@ public class Display extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImages(null);
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
+
+        w.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                wMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout wLayout = new javax.swing.GroupLayout(w);
         w.setLayout(wLayout);
@@ -81,9 +87,9 @@ public class Display extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void wMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wMouseClicked
-       
+       w.screenShot(); System.out.println("Frame saved.");
     }//GEN-LAST:event_wMouseClicked
 
     /**

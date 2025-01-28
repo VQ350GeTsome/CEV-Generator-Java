@@ -7,18 +7,17 @@ import javax.imageio.ImageIO;
 
 
 public class Exporter {
-    private String directory = "";
-    private String finalDirectory = "";
+    private static String directory = "";
+    private static String finalDirectory = "";
     
-    private int frame = 0;
+    private static int frame = 0;
     
     public Exporter(){
-        
+        getCurrentDirectory();
     }
     
     public void getCurrentDirectory(){
         directory = System.getProperty("user.dir");
-        //System.out.println("Current Directory: " + directory);
         int i = directory.length();
         String slashCheck = "";
         int slashIndex = 0;
@@ -35,15 +34,11 @@ public class Exporter {
     }
     
     public void exportCurrentImage(BufferedImage image){
-        String strFrame = "";
-        getCurrentDirectory();
-        
-        
         try{
             BufferedImage bi = image;
             File outputfile = new File("currentFrame.png");
             ImageIO.write(bi, "png", outputfile);
-            outputfile.renameTo(new File(directory + "\\" + frame + ".png"));
+            outputfile.renameTo(new File(directory + "\\" + "images" + "\\" +frame + ".png"));
             frame++;
             }
         catch (IOException e) {

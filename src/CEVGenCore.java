@@ -16,7 +16,7 @@ public class CEVGenCore extends JPanel {
     private CEVMath w; 
     private ArrayList<CEVInfo> pointsList, directionList;
     public  Music m = new Music();
-    //private Exporter export = new Exporter();
+    private Exporter export = new Exporter();
     
     //Variables
     private int points, n;
@@ -50,7 +50,7 @@ public class CEVGenCore extends JPanel {
         
         //Adjusts radius based off of volume %.
         double radiusTemp = (radius + (radius * audioRadiusIntensity * (volume - 1)));
-        double radiusAdj  = (radiusTemp + radiusPrev) / 2.0; radiusPrev = radiusAdj;
+        double radiusAdj  = playMusic ? (radiusTemp + radiusPrev) / 2.0 : radius; radiusPrev = radiusAdj;
         
         double shiftIntense = (audioShiftIntensity * 360); double angleA = (shiftIntense * volume) - shiftIntense;
         
@@ -115,4 +115,5 @@ public class CEVGenCore extends JPanel {
     //Image stuff
     public void imageSizer() { image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB); }
     @Override public void paintComponent(Graphics g) { super.paintComponent(g); g.drawImage(image, 0, 0, getWidth(), getHeight(), null); }
+    public void screenShot() { export.exportCurrentImage(image); }
 } 

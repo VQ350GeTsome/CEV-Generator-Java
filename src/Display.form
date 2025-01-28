@@ -40,6 +40,9 @@
   </Layout>
   <SubComponents>
     <Container class="CEVGenCore" name="w">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="wMouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
