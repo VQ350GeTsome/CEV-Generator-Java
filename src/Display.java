@@ -24,7 +24,6 @@ public class Display extends javax.swing.JFrame {
             w.initNoise(); w.printNoise();
 
             if (animate) {
-
                 w.initMove();
                 w.initTime();
                 w.timer.start();
