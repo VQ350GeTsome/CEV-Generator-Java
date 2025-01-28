@@ -8,7 +8,7 @@ public class Display extends javax.swing.JFrame {
         private void start(){
             initComponents(); w.imageSizer(); 
             
-            int track = getTrack(); 
+            giveTrackList(); int track = getTrack(); 
             
             boolean animate = true; w.setAnimate(animate);
             
@@ -32,7 +32,7 @@ public class Display extends javax.swing.JFrame {
         }
         
         private int getTrack(){
-            String input = JOptionPane.showInputDialog("Please enter a track number [1 - 9] (0 = no audio):");
+            String input = JOptionPane.showInputDialog("Please enter a track number [1 - 9] (0 = no audio):", 0);
             int number = 0;
             try {
                 number = Integer.parseInt(input);
@@ -42,6 +42,18 @@ public class Display extends javax.swing.JFrame {
             return number;
         }
         
+        private void giveTrackList(){
+            String tracks = "01 - Crush The Flowers (The Wake)\n" +
+                            "02 - He Saw The Light (Martin Dupont)\n" +
+                            "03 - Love Action (The Human League)\n" +
+                            "04 - Of Whales (Tona Walt Ohama)\n" +
+                            "05 - I The Cheated (Lowlife)\n" +
+                            "06 - p:machinery (Propaganda)\n" +
+                            "07 - Escape: Polaris (Pete Namlook)\n" +
+                            "08 - Europe After Rain (John Foxx)\n" +
+                            "09 - Taking Shape (Kas Product)";
+            JOptionPane.showMessageDialog(null, tracks);
+        }     
         
        
     
@@ -107,7 +119,7 @@ public class Display extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows Classic".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
