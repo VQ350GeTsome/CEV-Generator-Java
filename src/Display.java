@@ -43,15 +43,17 @@ public class Display extends javax.swing.JFrame {
         }
         
         private void giveTrackList(){
-            String tracks = "01 - Crush The Flowers (The Wake)\n" +
-                            "02 - He Saw The Light (Martin Dupont)\n" +
-                            "03 - Love Action (The Human League)\n" +
-                            "04 - Of Whales (Tona Walt Ohama)\n" +
-                            "05 - I The Cheated (Lowlife)\n" +
-                            "06 - p:machinery (Propaganda)\n" +
-                            "07 - Escape: Polaris (Pete Namlook)\n" +
-                            "08 - Europe After Rain (John Foxx)\n" +
-                            "09 - Taking Shape (Kas Product)";
+            String tracks = "<html> <b>Track list:</b> \n \n" +
+                    
+                            "01 - \"Crush The Flowers\" (The Wake)\n" +
+                            "02 - \"He Saw The Light\" (Martin Dupont)\n" +
+                            "03 - \"Love Action\" (The Human League)\n" +
+                            "04 - \"Of Whales\" (Tona Walt Ohama)\n" +
+                            "05 - \"I The Cheated\" (Lowlife)\n" +
+                            "06 - \"p:machinery\" (Propaganda)\n" +
+                            "07 - \"Escape: Polaris\" (Pete Namlook)\n" +
+                            "08 - \"Europe After Rain\" (John Foxx)\n" +
+                            "09 - \"Taking Shape (Kas\" Product)";
             JOptionPane.showMessageDialog(null, tracks);
         }     
         
